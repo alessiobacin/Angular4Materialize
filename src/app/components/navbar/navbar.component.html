@@ -1,0 +1,89 @@
+<!--<div class="container">-->
+
+<nav class="mainNav">
+  <div class="nav-wrapper white">
+    <a href="#!" [routerLink]="['/home']" class="brand-logo"><img class="new-img-logo" src="../../assets/images/logo_height40.png" alt="Newbiz-Logo"></a>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <ul class="right hide-on-med-and-down">
+      <!--<li><a class="page-scroll" [routerLink]="['/home']">Home</a></li>
+      <li><a class="page-scroll" [routerLink]="['/about']">Chi siamo</a></li>
+      <li><a class="page-scroll" [routerLink]="['/contacts']">Contatti</a></li>-->
+      
+      <li><a class="btn-floating btn-large waves-effect waves-light green new-position waves-light" [routerLink]="['/home']"><i class="material-icons">home</i></a></li>
+      <!--<a materialize="tooltip" id="fff" class="btn tooltipped" data-position="bottom" data-delay="10" data-tooltip="I am tooltip">Hover me!</a>-->
+      <li><a class="btn-floating btn-large waves-effect waves-light green new-position" [routerLink]="['/contacts']"><i class="material-icons">contact_phone</i></a></li>
+      <li><a class="btn-floating btn-large waves-effect waves-light green new-position" [routerLink]="['/about']"><i class="material-icons">store</i></a></li>
+      <li *ngIf="!currentUser()"><a class="btn-floating btn-large waves-effect waves-light green new-position" [routerLink]="['/login']"><i class="material-icons">system_update_alt</i></a></li>
+      <li *ngIf="currentUser()"><a class="btn-floating btn-large waves-effect waves-light green new-position" [routerLink]="['/login']"><i class="material-icons">present_to_all</i></a></li>
+      <li *ngIf="currentUser()"><a class="page-scroll" [routerLink]="['/supportpage']">settings</a></li>
+    </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <img md-card-image src="../../assets/images/haccp.jpg" style="width: 100%">
+      <li><a class="page-scroll" [routerLink]="['/home']">Home</a></li>
+      <li><a class="page-scroll" [routerLink]="['/about']">Chi siamo</a></li>
+      <li><a class="page-scroll" [routerLink]="['/contacts']">Contatti</a></li>
+      <h4>Simple Accordion</h4>
+      <ul class="collapsible black" data-collapsible="accordion">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>First Section</div>
+          <div class="collapsible-body">
+            <p>This is first section.</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">place</i>Second Section</div>
+          <div class="collapsible-body">
+            <p>This is second section.</p>
+          </div>
+        </li>
+        <li>
+          <div class="collapsible-header"><i class="material-icons">whatshot</i>Third Section</div>
+          <div class="collapsible-body">
+            <p>This is third section.</p>
+          </div>
+        </li>
+      </ul>
+      <li *ngIf="currentUser()"><a class="page-scroll" [routerLink]="['/supportpage']">Supporto</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!--<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+          aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          </button>
+        <a class="navbar-brand" [routerLink]="['/home']" style="padding-top:5px;"><img src="../../assets/images/logo_height40.png" alt="Newbiz-Logo" style="height:40px;"></a>
+      </div>
+
+      
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a class="page-scroll" [routerLink]="['/home']">Home</a></li>
+          <li><a class="page-scroll" [routerLink]="['/about']">Chi siamo</a></li>
+          <li >
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servizi<b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a class="page-scroll" [routerLink]="['/haccp']">Igiene degli alimenti</a></li>
+              <li><a class="page-scroll" [routerLink]="['/worksecurity']">Sicurezza sul lavoro</a></li>
+              <li><a class="page-scroll" [routerLink]="['/medicine']">Medicina del lavoro</a></li>
+              <li><a class="page-scroll" [routerLink]="['/firesecurity']">Antincendio</a></li>
+            </ul>
+          </li>
+          <li><a class="page-scroll" [routerLink]="['/contacts']">Contatti</a></li>
+          <li *ngIf="currentUser()"><a class="page-scroll" [routerLink]="['/supportpage']">Supporto</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li *ngIf="currentUser()"><a class="page-scroll" href="#" (click)="logout()">Uscita</a></li>
+          <li *ngIf="!currentUser()"><a class="page-scroll" [routerLink]="['/login']">Accesso/Registrazione</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>-->

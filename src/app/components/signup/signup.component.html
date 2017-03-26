@@ -1,0 +1,34 @@
+<section class="signin">
+  <h3>{{signupTitle}}</h3>
+  <form [formGroup]="createForm" (ngSubmit)="createUser(createForm.value)">
+    <fieldset>
+      <div class="form-group">
+        <input class="form-control" placeholder="FirstName" name="FirstName" type="text" [formControl]="createForm.controls['firstname']"
+          autofocus>
+      </div>
+      <div class="form-group">
+        <input class="form-control" placeholder="LastName" name="LastName" type="text" [formControl]="createForm.controls['lastname']"
+          autofocus>
+      </div>
+      <div class="form-group">
+        <input class="form-control" placeholder="E-mail" name="email" type="email" [formControl]="createForm.controls['email']" autofocus>
+      </div>
+      <div formGroupName="matchingPassword">
+        <div class="form-group">
+          <input class="form-control" placeholder="Password" name="password" formControlName='password' type="password"
+            value="">
+        </div>
+        <div class="form-group">
+          <input class="form-control" placeholder="Confirm password" name="confirmPassword" formControlName='confirmPassword' type="password" value="">
+        </div>
+        <!--<span *ngIf="passwordValid == false" class="help-block text-danger">
+          <div *ngIf="passwordValid == false">
+            The two passwords aren't the same
+          </div>
+        </span>-->
+      </div>
+      <!-- Change this to a button or input when using this as a form -->
+      <button type="submit" [disabled]="!createForm.valid" class="btn btn-lg btn-success btn-block">Create User</button>
+    </fieldset>
+  </form>
+</section>

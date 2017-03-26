@@ -1,0 +1,36 @@
+.chatpanel{
+    width: 300px;
+    float: left;
+    margin-right: 20px;
+}
+.avatar-right{
+    height: 42px;
+    width: 42px;
+    float: right;
+}
+.avatar-left{
+    height: 42px;
+    width: 42px;
+    float: left;
+    margin-right: 10px;
+}
+.message-left{
+    margin-top: 10px;
+    margin-right: 40px;
+    margin-left:10px;
+}
+.message-right{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left:40px;
+}
+.messageContainer{
+    max-height: 500px;
+    overflow: scroll;
+}
+.messageInfos{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left:10px;
+    margin-bottom:-5px;
+}

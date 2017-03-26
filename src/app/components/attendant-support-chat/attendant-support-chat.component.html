@@ -1,0 +1,30 @@
+<div *ngIf="thisUserThreads && thisUserThreads.threadStatus != 'Chiuso'" class="panel panel-default chatpanel">
+  <div class="panel-heading">Nome assistito: {{thisUserThreads.name}}</div>
+  <div class="messageContainer">
+    <div *ngFor="let message of messages">
+      <div *ngIf="message.attendantUserObjectId" class="panel panel-default message-left">
+        <div class="messageInfos">{{message.name}} - {{message.dateTime | date: 'dd:MM:yyyy - hh:mm'}}</div>
+        <div class="panel-body">
+          <!--<span><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class="avatar-left"></span>{{message.message}}-->
+          <span *ngIf="message.name == 'Alessio Bacin'" ><img src="../../../../assets/images/attendants/Alessio_Bacin.png" class="avatar-left"></span>{{message.message}}
+        </div>
+      </div>
+      <div *ngIf="message.attendantUserObjectId == null" class="panel panel-default message-right">
+        <div class="messageInfos">{{message.name}} - {{message.dateTime | date: 'dd:MM:yyyy - hh:mm'}}</div>
+        <div class="panel-body">
+          <span><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class="avatar-left"></span>{{message.message}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="createForm" (ngSubmit)="sendMessage(createForm.value)">
+    <fieldset>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><div class="glyphicon glyphicon-comment"></div></span>
+        <input class="form-control" placeholder="Messaggio" name="Message" type="text" [formControl]="createForm.controls['message']"
+          autofocus>
+        <span class="input-group-btn"><button type="submit" [disabled]="!createForm.valid" class="btn btn-default">Invia</button></span>
+      </div>
+    </fieldset>
+  </form>
+</div>

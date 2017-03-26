@@ -1,0 +1,47 @@
+.avatar-right{
+    height: 42px;
+    width: 42px;
+    float: right;
+}
+.avatar-left{
+    height: 42px;
+    width: 42px;
+    float: left;
+    margin-right: 10px;
+}
+.message-left{
+    margin-top: 10px;
+    margin-right: 40px;
+    margin-left:10px;
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+.message-right{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left:40px;
+}
+.messageContainer{
+    max-height: 500px;
+    overflow: scroll;
+}
+.messageInfos{
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left:10px;
+    margin-bottom:-5px;
+}
+.panel-heading{
+    background-color: steelblue;
+}
+.panel   {
+    border-radius: 0px;
+}
+.input-group{
+    border-radius: 0px;
+}
+
+.panel-heading{
+    border-radius: 0px;
+}

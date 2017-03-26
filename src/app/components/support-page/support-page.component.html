@@ -1,0 +1,81 @@
+<div class="container grid">
+  <div>
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        Elenco assistenze in corso
+        <!--<label style="float: right">
+            <input type="checkbox" (change)='checkboxValue($event)'> Only Torino
+        </label>-->
+      </div>
+      <!-- Table -->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Data</th>
+            <th>Città(presunta)</th>
+            <th>Stato</th>
+            <th>Seguito da:</th>
+            <th>Risposto</th>
+            <th>Chiuso il:</th>
+            <th>Azione</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let thread of threads">
+            <td>{{thread.name}}</td>
+            <td>{{thread.date | date: 'dd:MM:yyyy - hh:mm'}}</td>
+            <td>{{thread.city}}</td>
+            <td>{{thread.threadStatus}}</td>
+            <td>{{thread.attendantFullName}}</td>
+            <td>{{thread.openingDateTime | date: 'dd:MM:yyyy - hh:mm'}}</td>
+            <td>{{thread.closingDateTime | date: 'dd:MM:yyyy - hh:mm'}}</td>
+            <td *ngIf="thread.threadStatus=='In attesa'"><button type="button" (click)="assistCustomer(thread.$key)" class="btn btn-success">Assisti</button></td>
+            <td *ngIf="thread.threadStatus=='In corso' && thread.attendantUserObjectId == attendantUser.$key"><button type="button" (click)="closeChat(thread.$key)" class="btn btn-danger">Chiudi</button></td>
+            <td *ngIf="thread.threadStatus=='Chiuso'"><button type="button" (click)="seeChat(thread.$key)" class="btn btn-info" data-toggle="modal" data-target="#bootstrapModal">Vedi</button></td>
+            <td *ngIf="thread.threadStatus=='In corso' && thread.attendantUserObjectId != attendantUser.$key">Già seguito</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <app-attendant-support-chat *ngFor="let thisUserThread of thisUserThreads; let i = index" [thisUserThreads]="thisUserThreads[i]"></app-attendant-support-chat>
+
+    <!--Modal-->
+    <div class="modal fade" id="bootstrapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{modalTitle}}</h5>
+            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>-->
+        <!--</button>-->
+          </div>
+          <div class="modal-body">
+            <div class="messageContainer">
+              <div *ngFor="let message of modalMessages">
+                <div *ngIf="message.attendantUserObjectId" class="panel panel-default message-left">
+                  <div class="messageInfos">{{message.name}} - {{message.dateTime | date: 'dd:MM:yyyy - hh:mm'}}</div>
+                  <div class="panel-body">
+                    <span><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class="avatar-left"></span>{{message.message}}
+                  </div>
+                </div>
+                <div *ngIf="message.attendantUserObjectId == null" class="panel panel-default message-right">
+                  <div class="messageInfos">{{message.name}} - {{message.dateTime | date: 'dd:MM:yyyy - hh:mm'}}</div>
+                  <div class="panel-body">
+                    <span><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class="avatar-left"></span>{{message.message}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--modal end-->
+
+  </div>
+</div>

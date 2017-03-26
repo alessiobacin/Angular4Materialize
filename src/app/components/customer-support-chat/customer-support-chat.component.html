@@ -1,0 +1,44 @@
+<div open id="customerChat" *ngIf="!currentUser && chatHide == false" class="panel panel-primary fixed-chat">
+        <header class="panel-heading">Chatta con noi
+            <span class="glyphicon glyphicon-remove new-icon" style="float: right;" (click)="closeWindow()"></span>
+            <span *ngIf="windowChatState==true" class="glyphicon glyphicon-minus" style="float: right;  padding-right: 10px;" (click)="minimizeWindow()"></span>
+            <span *ngIf="windowChatState==false" class="glyphicon glyphicon-plus" style="float: right;  padding-right: 10px;" (click)="maximizeWindow()"></span>
+        </header>
+  <div class="messageContainer" *ngIf="windowChatState==true">
+    <div *ngFor="let message of currentMessages">
+      <div *ngIf="message.attendantUserObjectId" class="panel panel-default message-right">
+        <div class="messageInfos">{{message.name}} - {{message.dateTime | date: 'dd:MM:yyyy - hh:mm'}}</div>
+        <div class="panel-body">
+          <!--<span><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class="avatar-left"></span>{{message.message}}-->
+          <span *ngIf="message.name == 'Alessio Bacin'" ><img src="../../../../assets/images/attendants/Alessio_Bacin.png" class="avatar-left"></span>{{message.message}}
+        </div>
+      </div>
+      <div *ngIf="message.attendantUserObjectId == null" class="panel panel-default message-left">
+        <div class="messageInfos">{{message.name}} - {{message.dateTime | date: 'dd:MM:yyyy - hh:mm'}}</div>
+        <div class="panel-body">
+          <span><img src="http://www.bitrebels.com/wp-content/uploads/2011/02/Original-Facebook-Geek-Profile-Avatar-1.jpg" class="avatar-left"></span>{{message.message}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <form [formGroup]="createForm" (ngSubmit)="sendMessage(createForm.value)" *ngIf="windowChatState==true">
+    <fieldset>
+      <div class="input-group" *ngIf="hideNameField==false">
+        <span class="input-group-addon" id="basic-addon1"><div class="glyphicon glyphicon-user"></div></span>
+        <input class="form-control" placeholder="Nome" name="Name" type="text" [formControl]="createForm.controls['name']" autofocus
+          aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1"><div class="glyphicon glyphicon-comment"></div></span>
+        <input class="form-control" placeholder="Messaggio" name="Message" type="text" [formControl]="createForm.controls['message']"
+          autofocus>
+        <span class="input-group-btn"><button type="submit" [disabled]="!createForm.valid" class="btn btn-default" >Invia</button></span>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+
+
+
+       

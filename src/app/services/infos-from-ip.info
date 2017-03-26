@@ -1,0 +1,23 @@
+http://freegeoip.net/
+
+    WITH NO ADDRESS TAKES THE CURRENT NAVIGATION ADDRESS
+
+API
+The HTTP API takes GET requests in the following schema:
+
+freegeoip.net/{format}/{IP_or_hostname}
+Supported formats are: csv, xml, json and jsonp. If no IP or hostname is provided, then your own IP is looked up.
+
+Examples:
+
+CSV
+freegeoip.net/csv/8.8.8.8
+
+XML
+freegeoip.net/xml/4.2.2.2
+
+JSON
+freegeoip.net/json/github.com
+
+
+RETURNS OBSERVABLE AND HAVE TO PARSE _BODY PARAMETER TO GET DATA;
