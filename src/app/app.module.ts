@@ -25,9 +25,7 @@ import { MedicineComponent } from './components/medicine/medicine.component';
 import { FireSecurityComponent } from './components/fire-security/fire-security.component';
 
 //materialize
-import 'materialize-css';
-import { MaterializeModule } from 'angular2-materialize';
-import 'hammerjs';
+import { MaterializeModule } from 'ng2-materialize';
 
 //services
 import { QuerydbService } from './services/querydb.service';
@@ -76,7 +74,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AppRoutingModule,
     ReactiveFormsModule,
-    AgmCoreModule.forRoot({apiKey: 'AIzaSyDXqB6vK_9CUYmqMfXAMhdRNSRXeSEDdlA'})
+    AgmCoreModule.forRoot({apiKey: 'AIzaSyDXqB6vK_9CUYmqMfXAMhdRNSRXeSEDdlA'}),
+    MaterializeModule.forRoot()
   ],
   providers: [AuthGuard, QuerydbService, InfosFromIpService],
   bootstrap: [AppComponent]

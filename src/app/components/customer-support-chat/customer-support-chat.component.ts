@@ -90,22 +90,25 @@ export class CustomerSupportChatComponent implements OnInit {
   ngOnInit() {
   }
 
-  ngAfterContentChecked() {
-    this.videoSize = {
-      width: $('#mainVideo').width(),
-      height: $('#mainVideo').height()
-    }
-    $('#customerChat').css({
-      "position": "fixed",
-      "width": "350px",
-      "right": "0px",
-      "top": (this.videoSize.height * 0.7),
-      "overflow": "hidden",
-      "z-index": "100",
-      "margin-right": "20px"
-    })
-    // console.log('again width is: ' + $('#mainVideo').width() + ' again height is: ' + $('#mainVideo').height());
+  testo(test){
+    console.log('test is:', test);
   }
+  // ngAfterContentChecked() {
+  //   this.videoSize = {
+  //     width: $('#mainImage').width(),
+  //     height: $('#mainImage').height()
+  //   }
+  //   $('#customerChat').css({
+  //     "position": "fixed",
+  //     "width": "350px",
+  //     "right": "0px",
+  //     "top": (this.videoSize.height * 0.7),
+  //     "overflow": "hidden",
+  //     "z-index": "100",
+  //     "margin-right": "20px"
+  //   })
+  //   // console.log('again width is: ' + $('#mainVideo').width() + ' again height is: ' + $('#mainVideo').height());
+  // }
 
   maximizeWindow() {
     this.windowChatState = true;

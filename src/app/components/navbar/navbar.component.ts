@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// declare let $;
-// declare let jQuery;
+import { Router } from '@angular/router';
+declare let $;
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   logout() {
     localStorage.removeItem('currentUser');
+    this.router.navigate(['home']);
   }
 
   currentUser() {
@@ -20,6 +21,5 @@ export class NavbarComponent implements OnInit {
   };
 
   ngOnInit() {
-    // $('#fff').tooltip();
   }
 }

@@ -1,34 +1,32 @@
-<section class="signin">
-  <h3>{{signupTitle}}</h3>
+<section class="container signin">
   <form [formGroup]="createForm" (ngSubmit)="createUser(createForm.value)">
-    <fieldset>
+    <h4>{{signupTitle}}</h4>
       <div class="form-group">
-        <input class="form-control" placeholder="FirstName" name="FirstName" type="text" [formControl]="createForm.controls['firstname']"
+        <label for="">Nome</label>
+        <input class="form-control" placeholder="Scrivi il tuo nome" name="firstname" type="text" [formControl]="createForm.controls['firstname']"
           autofocus>
       </div>
       <div class="form-group">
-        <input class="form-control" placeholder="LastName" name="LastName" type="text" [formControl]="createForm.controls['lastname']"
+        <label for="">Cognome</label>
+        <input class="form-control" placeholder="Scrivi il tuo cognome" name="LastName" type="text" [formControl]="createForm.controls['lastname']"
           autofocus>
       </div>
       <div class="form-group">
-        <input class="form-control" placeholder="E-mail" name="email" type="email" [formControl]="createForm.controls['email']" autofocus>
+        <label for="">Email</label>
+        <input class="form-control" placeholder="Scrivi la tua Email" name="email" type="email" [formControl]="createForm.controls['email']" autofocus>
       </div>
       <div formGroupName="matchingPassword">
         <div class="form-group">
-          <input class="form-control" placeholder="Password" name="password" formControlName='password' type="password"
+          <label for="">Password</label>
+          <input class="form-control" placeholder="Digita la Password" name="password" formControlName='password' type="password"
             value="">
         </div>
         <div class="form-group">
-          <input class="form-control" placeholder="Confirm password" name="confirmPassword" formControlName='confirmPassword' type="password" value="">
+          <label for="">Conferm password</label>
+          <input class="form-control" placeholder="Conferma la password" name="confirmPassword" formControlName='confirmPassword' type="password" value="">
         </div>
-        <!--<span *ngIf="passwordValid == false" class="help-block text-danger">
-          <div *ngIf="passwordValid == false">
-            The two passwords aren't the same
-          </div>
-        </span>-->
       </div>
       <!-- Change this to a button or input when using this as a form -->
-      <button type="submit" [disabled]="!createForm.valid" class="btn btn-lg btn-success btn-block">Create User</button>
-    </fieldset>
+      <button type="submit" [disabled]="!createForm.valid" class="btn btn-lg btn-success btn-block">Create l'utente</button>
   </form>
 </section>

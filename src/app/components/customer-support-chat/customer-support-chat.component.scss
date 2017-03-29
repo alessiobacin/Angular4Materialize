@@ -1,3 +1,10 @@
+.chatpanel{
+    position: fixed;
+    width: 300px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 70%;
+}
 .avatar-right{
     height: 42px;
     width: 42px;
@@ -23,7 +30,7 @@
     margin-left:40px;
 }
 .messageContainer{
-    max-height: 500px;
+    max-height: 300px;
     overflow: scroll;
 }
 .messageInfos{
@@ -32,8 +39,11 @@
     margin-left:10px;
     margin-bottom:-5px;
 }
-.panel-heading{
-    background-color: steelblue;
+.input-group{
+    border-radius: 0px;
+}
+.card-content{
+    padding: 0px;
 }
 .panel   {
     border-radius: 0px;
@@ -44,4 +54,16 @@
 
 .panel-heading{
     border-radius: 0px;
+}
+.input-group{
+    border-radius: 0px;
+}
+.fixed-chat{
+    position: absolute;
+    top: 15vw;
+    width: 350px;
+    left: 20px;
+    overflow: hidden;
+    z-index: 50;
+    margin-right: 20px;
 }

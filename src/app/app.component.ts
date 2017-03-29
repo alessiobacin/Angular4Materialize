@@ -10,8 +10,15 @@ import * as $ from 'jquery';
 
 export class AppComponent {
   title = 'app works!';
-
+  currentUser: any;
+  
   constructor(){
+      if (localStorage.getItem('currentUser')) {
+      this.currentUser = true;
+      // console.log(this.currentUser);
+    } else {
+      this.currentUser = false;
+    }
   }
 
   ngAfterViewInit(){
